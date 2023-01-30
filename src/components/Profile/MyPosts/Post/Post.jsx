@@ -1,10 +1,13 @@
 import React from 'react'
 import s from '../Post/Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={s.item}>
-            post 1
+            {props.message}
+            <div>
+                <span>{props.count}</span>
+            </div>
         </div>
     )
 }
