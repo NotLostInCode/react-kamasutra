@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from '../render'
+
 
 let state = {
     profilePage: {
@@ -5,7 +7,7 @@ let state = {
         posts: [
             { id: 1, message: 'Hi', likesCount: 12 },
             { id: 2, message: 'How is your it-kamasutra?', likesCount: 11 },
-            { id: 2, message: 'How is your it-kamasutra?', likesCount: 11 },
+            { id: 3, message: 'How is your it-kamasutra?', likesCount: 11 },
         ],
     },
     dialogsPage: {
@@ -25,9 +27,19 @@ let state = {
             { id: 3, message: 'Yo' },
         ]
     }
-
-
-
 }
 
+
+// Получение новых сообщений от пользователей 
+// и добавление в существующий массив с объектами - state
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state);
+}
 export default state;
